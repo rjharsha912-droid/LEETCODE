@@ -1,1 +1,28 @@
-
+class Solution {
+    public List<Integer> luckyNumbers(int[][] matrix) {
+     List<Integer> answer = new ArrayList<>();
+      for(int i=0;i<matrix.length;i++){
+        int min = matrix[i][0];
+        int mincolumn = 0;
+        for(int j=0;j<matrix[i].length;j++){
+            if(matrix[i][j]<min){
+                min = matrix[i][j];
+                mincolumn = j;
+            }
+        }
+         
+        boolean lucky = true;
+        for(int k=0;k<matrix.length;k++){
+            if(matrix[k][mincolumn] > min){
+lucky = false;
+            }
+        }
+           
+            if(lucky) {
+    answer.add(min);
+}
+        
+      }
+      return answer;
+    }
+}
