@@ -1,0 +1,26 @@
+class Solution {
+    public boolean checkPerfectNumber(int n) {
+       if(n == 6 || n == 28 || n == 496 || n == 8128 || n == 33550336){
+        return true;
+       }else{
+        return false;
+       }
+    }
+}
+
+
+
+
+class Solution {
+    public boolean checkPerfectNumber(int num) {
+       
+        int count = 0;
+        for(int i=1;i<num;i++){
+            if(num%i==0){
+count += i;
+
+            }
+        }
+        return count==num;
+    }
+}
