@@ -1,0 +1,32 @@
+class Solution {
+    public int minimumDeletions(int[] nums) {
+        if(nums.length==1){
+            return 1;
+        }
+        int max = nums[0];
+        int min = nums[0];
+
+        int maxIndex = 0;
+        int minIndex = 0;
+        
+        for(int i=1;i<nums.length;i++){
+            if(nums[i]>max){
+                max = nums[i];
+                maxIndex  = i; // 1
+            }
+        }
+        for(int j=1;j<nums.length;j++){
+            if(nums[j]<min){
+                min = nums[j];
+                minIndex = j; // 5
+            }
+        }
+int left = Math.max(maxIndex,minIndex); // (1,5) 5
+int right = Math.min(maxIndex,minIndex); //(1,5) 1
+       int f = left + 1; // 6
+       int b = nums.length-right;//8-1 = 7
+       int fb = (right+1) + (nums.length-left); // (1+1) + (8-5) = 2+3 = 5
+
+       return Math.min(f,Math.min(b,fb));
+    }
+}
