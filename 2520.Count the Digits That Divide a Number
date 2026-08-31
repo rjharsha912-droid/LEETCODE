@@ -1,0 +1,16 @@
+class Solution {
+    public int countDigits(int num) {
+        int count = 0;
+        int a = num; //a=1248
+        while(num>0){
+            int digit = num%10;  // 1248%10==8  // 124%10 ==4
+            if(a%digit==0){  //1248/8==0 // 1248/4==0
+                count++; //count = 1 
+            }
+num = num/10; //num = 124
+        }
+        
+    
+    return count;
+}
+}
