@@ -1,0 +1,24 @@
+class Solution {
+    public int maxNumberOfBalloons(String text) {
+         HashMap<Character,Integer> freq_balloon = new HashMap<>();
+         String s = "balloon";
+        for(int i=0;i<s.length();i++){
+            char ch_1 = s.charAt(i);
+            freq_balloon.put(ch_1,freq_balloon.getOrDefault(ch_1,0)+1);
+        }
+        
+        HashMap<Character,Integer> freq_text = new HashMap<>();
+        for(int i=0;i<text.length();i++){
+            char ch_2 = text.charAt(i);
+            freq_text.put(ch_2,freq_text.getOrDefault(ch_2,0)+1);
+        }
+       int ans = Integer.MAX_VALUE;
+       for(char ch:freq_balloon.keySet()){
+        int available = freq_text.getOrDefault(ch,0);
+        int required = freq_balloon.get(ch);
+        int possible= available/required;
+        ans = Math.min(ans,possible);
+       }
+       return ans;
+    }
+}
