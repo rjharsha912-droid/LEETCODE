@@ -1,0 +1,2 @@
+        String a =s.toLowerCase();
+        return a;
