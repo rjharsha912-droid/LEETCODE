@@ -1,0 +1,26 @@
+class Solution {
+    public int totalFruit(int[] fruits) {
+        int left = 0;
+        int max_length = 0;
+        int curr_length = 0;
+
+        HashMap<Integer,Integer> h1 = new HashMap<>();
+        for(int right = 0;right<fruits.length;right++){
+            h1.put(fruits[right],h1.getOrDefault(fruits[right],0)+1);
+            
+            if(h1.size()>2){
+            int remove = fruits[left];
+            h1.put(remove,h1.get(remove)-1);
+            if(h1.get(remove)==0){
+                h1.remove(remove);
+            }
+            left++;
+        }
+
+        curr_length = right-left+1;
+        max_length = Math.max(max_length,curr_length);
+        }
+        
+        return max_length;
+    }
+}   
