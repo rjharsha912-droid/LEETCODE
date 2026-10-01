@@ -1,0 +1,23 @@
+class Solution {
+    public int maximumPrimeDifference(int[] nums) {
+        ArrayList<Integer> h1 = new ArrayList<>();
+        for(int i=0;i<nums.length;i++){
+            int n = nums[i];
+ boolean prime = true;
+        if(n<=1){
+prime = false;
+        }
+        for(int j=2;j<n;j++){
+            if(n%j==0){
+                prime = false;
+                break;
+            }
+        }
+        if(prime){
+h1.add(i);
+        }
+        }
+        return h1.get(h1.size()-1)-h1.get(0);
+       
+    }
+}
