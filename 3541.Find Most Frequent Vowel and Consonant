@@ -1,0 +1,22 @@
+class Solution {
+    public int maxFreqSum(String s) {
+        HashMap<Character,Integer> h1 = new HashMap<>();
+        for(int i=0;i<s.length();i++){
+            char ch = s.charAt(i);
+            h1.put(ch,h1.getOrDefault(ch,0)+1);
+        }
+        int vol_max = 0;
+        int cons_max = 0;
+       
+        for(Map.Entry<Character, Integer> entry : h1.entrySet()) {
+    char key = entry.getKey();
+    int freq = entry.getValue();
+   if(key=='a' || key=='e'|| key=='i' || key=='o' || key=='u'){
+vol_max = Math.max(vol_max,freq);
+   }else{
+    cons_max = Math.max(cons_max,freq);
+   }
+        }
+        return vol_max + cons_max;
+    }
+}
